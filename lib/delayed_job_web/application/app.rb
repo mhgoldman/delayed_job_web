@@ -110,7 +110,7 @@ class DelayedJobWeb < Sinatra::Base
     end
   end
 
-  get "/by_id/:id" do
+  get "/by_id" do
     @job = delayed_job.find(params[:id])
     erb :by_id
   end
