@@ -1,0 +1,7 @@
+<h1>Job <%= @job.id %></h1>
+<p class="sub">
+  A single job is displayed below.
+</p>
+<ul class="job">
+  <%= partial :job, {:job => @job} %>
+</ul>

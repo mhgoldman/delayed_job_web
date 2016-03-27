@@ -110,6 +110,11 @@ class DelayedJobWeb < Sinatra::Base
     end
   end
 
+  get "/by_id/:id" do
+    @job = delayed_job.find(params[:id])
+    erb :job
+  end
+
   post "/remove/:id" do
     delayed_job.find(params[:id]).delete
     redirect back
