@@ -117,7 +117,12 @@ class DelayedJobWeb < Sinatra::Base
 
   post "/remove/:id" do
     delayed_job.find(params[:id]).delete
-    redirect back
+
+    if back.to_s.include?('by_id')
+      redirect path_prefix
+    else
+      redirect back
+    end
   end
 
   %w(pending failed).each do |page|
